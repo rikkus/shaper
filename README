@@ -1,0 +1,39 @@
+Shaper version 0.1
+
+*** Use at own risk. May delete all your files, blow up your computer...  ***
+
+Per-process traffic shaper.
+Nasty, nasty, nasty hack.
+
+Basic instructions:
+
+Install with 'make install' and rehash your shell.
+
+Now run a program which uses TCP sockets and notice that it is limited
+to 1kB/s input. Or it should be. If it's not, that's because this is
+a major hack and it probably doesn't work with some programs.
+
+You can set some things with environment variables.
+
+* SHAPER_DEBUG_LEVEL
+
+  A number from 0 to 3, where 0 is no output.
+
+  Default: 0
+
+* SHAPER_READ_LIMIT
+
+  Max bytes to read per second.
+
+  Default: 1024
+
+* SHAPER_INTERVAL
+
+  Delay between 'cycles' in microseconds.
+  Less means your app doesn't stall so long, but the limiting gets less
+  exact and it could eat CPU with really low values. Stick with the default
+  if you know what's good for you.
+
+  Default: 100000
+
+Rik Hemsley (rikkus) <rik@kde.org>
